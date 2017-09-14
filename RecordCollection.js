@@ -28,11 +28,40 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
+
+
   
+    if(collection[id][prop] == undefined){
+      if(prop == "tracks"){
+        collection[id][prop] = [];
+      }
+    }
+    
+    if(value == ""){
+      delete collection[id][prop];
+    }
+    
+    else if(prop == "tracks"){
+      var temparr = [];
+      console.log(collection[id][prop]);
+
+      for(var i=0; i<collection[id][prop].length; i++){
+        temparr.push(collection[id][prop][i]);
+      }
+      temparr.push(value);
+      collection[id][prop] = temparr;
+      console.log(temparr);
+      console.log(collection[id][prop]);
+    }
+    
+    else if(collection[id][prop] != value){
+      collection[id][prop] = value;
+    }
+
   
   return collection;
 }
 
 // Alter values below to test your code
-updateRecords(5439, "artist", "ABBA");
+console.log(updateRecords(2468, "tracks", "Free"));
 
