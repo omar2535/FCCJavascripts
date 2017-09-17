@@ -17,6 +17,10 @@ function sym() {
       var currentelement = purearr[i];
       console.log(currentelement);
       var counter = 0;
+      if(contains(purearr, currentelement) == true){
+        newarr.push(currentelement);
+      }
+      
       //STILL NEED TO COMPLETE WHILE LOOP INCREMENTING I WHEN NOT SAME NUMBER
       
     }
@@ -25,6 +29,7 @@ function sym() {
   }
   
   console.log(sym([1, 2, 3], [5, 2, 1, 4]));
+  console.log(sym([1, 2, 5], [2, 3, 5], [3, 4, 5]));
   
   function initializer(arr){
     var newarr = [];
@@ -59,3 +64,20 @@ function bubbleSort(a)
         }
     } while (swapped);
 }
+
+function contains(arr, element){
+  var hasmorethanone = false;
+  var counter = 0;
+  for(var i=0; i<arr.length; i++){
+    if(arr[i] == element){
+      counter++
+    }
+  }
+  if(counter >1){
+    return false;
+  }else{
+    return true;
+  }
+}
+
+console.log(contains([1,2,3], 1))
