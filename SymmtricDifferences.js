@@ -1,18 +1,15 @@
   
 function sym() {
 
+
     var newarr = [];
     var pastarr = [];
     var translatedarr = initializer(arguments);
     var length = arguments.length;
+    var timestobelooped = 2;
     var purearr = concatall(translatedarr);
     bubbleSort(purearr);
     
-    console.log(purearr);
-    console.log(arguments[0][1]);
-    console.log(translatedarr);
-
-
     for(var i=0; i<purearr.length; i++){
       var currentelement = purearr[i];
       console.log(currentelement);
@@ -21,16 +18,18 @@ function sym() {
         newarr.push(currentelement);
       }
       
-      //STILL NEED TO COMPLETE WHILE LOOP INCREMENTING I WHEN NOT SAME NUMBER
       
     }
+
+
     return newarr;
     
   }
   
-  console.log(sym([1, 2, 3], [5, 2, 1, 4]));
-  console.log(sym([1, 2, 5], [2, 3, 5], [3, 4, 5]));
+
+  console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));
   
+  //helper to initialize my array
   function initializer(arr){
     var newarr = [];
     for(var i=0; i<arr.length; i++){
@@ -39,6 +38,8 @@ function sym() {
     return newarr;
   }
 
+
+//helper to concatonate all my arrays
 function concatall(arrs){
   var newarr = [];
     for(var i=0; i<arrs.length; i++){
@@ -49,6 +50,8 @@ function concatall(arrs){
 
 var a = [33, 103, 3, 726, 200, 984, 198, 764, 9];
 
+
+//sort from least to greatest
 function bubbleSort(a)
 {
     var swapped;
@@ -65,6 +68,8 @@ function bubbleSort(a)
     } while (swapped);
 }
 
+
+//Checks if it contains the element i am looking for
 function contains(arr, element){
   var hasmorethanone = false;
   var counter = 0;
@@ -80,4 +85,4 @@ function contains(arr, element){
   }
 }
 
-console.log(contains([1,2,3], 1))
+console.log(contains([1,2,3], 1));
